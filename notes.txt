@@ -1,0 +1,10 @@
+php artisan Tinker
+>>> $tweets = Tweet::factory()->count(5)->make(['user_id' => 1]);
+>>> foreach($tweets as $tweet) { $tweet->save();}
+
+
+
+
+
+
+auth()->setUser(User::find(1));

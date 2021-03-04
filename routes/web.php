@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Models\User;
 
+auth()->setUser(User::find(1));
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', [HomeController::class, 'index']);
+Route::post('/tweets', [TweetsController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

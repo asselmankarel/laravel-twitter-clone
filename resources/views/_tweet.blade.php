@@ -3,9 +3,9 @@
     <img src="https://i.pravatar.cc/50" alt="" class="rounded-full">
   </div>
   <div class="sec">
-    <h5 class="font-bold mb-4">John Doe</h5>
+    <h5 class="font-bold mb-4">{{ $tweet->user->name }}</h5>
     <p class="text-sm">
-      If you'd like to customize your values for space between, padding, margin, width, and height all at once, use the theme.spacing section of your tailwind.config.js file.
+      {{ $tweet->body }}
     </p>
   </div>
 </div>

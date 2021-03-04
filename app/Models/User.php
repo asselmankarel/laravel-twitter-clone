@@ -11,6 +11,11 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function timeline()
+    {
+        return Tweet::latest()->get();
+    }
+
     /**
      * The attributes that are mass assignable.
      *

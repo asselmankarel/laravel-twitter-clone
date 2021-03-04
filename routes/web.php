@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TweetsController;
 use App\Models\User;
 
-auth()->setUser(User::find(1));
+// auth()->setUser(User::find(1));
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'index']);
-Route::post('/tweets', [TweetsController::class, 'store']);
+Route::middleware('auth')->group(function () {
+    Route::get('/tweets', [TweetsController::class, 'index'])->name('home');
+    Route::post('/tweets', [TweetsController::class, 'store']);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

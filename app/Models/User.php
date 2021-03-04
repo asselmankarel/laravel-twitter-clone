@@ -16,6 +16,11 @@ class User extends Authenticatable
         return Tweet::latest()->get();
     }
 
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
